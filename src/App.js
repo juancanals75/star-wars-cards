@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      allPeople: [],
+      isLoading: false
+    }
+  }
+
+  componentDidMount() {
+    let allFetch = []
+    this.setState({isLoading: true})
+    for (let i = 1; i < 10; i++) {
+      const fetchUrl = "https://swapi.co/api/people/?page=" + i
+      allFetch[i-1] = fetch(fetchUrl).then(response => response.json()).then(response => response.results)
+    }
+
+    Promise.all(allFetch).then(values => {
+      this.setState({
+        allPeople: values.flat(),
+        isLoading: false
+      })
+    })
+  }
+
+  render() {
+    let loadCheck
+
+    if(this.state.isLoading) {
+      loadCheck = <h1>LOADING</h1>
+    } else {
+      loadCheck = <h1>LOADED</h1>
+    }
+
+    return (
+      <div>
+        <main>{loadCheck}</main>
+      </div>
+    )
+  }
 }
 
 export default App;
