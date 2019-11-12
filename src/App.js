@@ -1,4 +1,5 @@
 import React from 'react'
+import LoadingScreen from './LoadingScreen'
 import CharList from './CharList'
 
 class App extends React.Component {
@@ -6,7 +7,8 @@ class App extends React.Component {
     super()
     this.state = {
       allPeople: [],
-      isLoading: false
+      isLoading: false,
+      fetchError: false
     }
   }
 
@@ -24,13 +26,17 @@ class App extends React.Component {
         isLoading: false
       })
     })
+    .catch(error => {
+      this.setState({fetchError: true})
+      console.log(error)
+    })
   }
 
   render() {
     let loadCheck
 
-    if(this.state.isLoading) {
-      loadCheck = <h1>LOADING</h1>
+    if (this.state.isLoading && !this.state.fetchError) {
+      loadCheck = <LoadingScreen />
     } else {
       loadCheck = <CharList allPeople={this.state.allPeople}/>
     }

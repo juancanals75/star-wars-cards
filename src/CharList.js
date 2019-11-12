@@ -39,14 +39,16 @@ class CharList extends React.Component {
     const allCharList = this.state.filtered.map(function(charProps, index) { return (<Character key={index} {...charProps} />) })
     return (
       <div className="list-container">
-        <div className="list-results">
-          {allCharList}
-        </div>
         <div className="search">
           <input
-          name="search"
-          value={this.state.searchTxt}
-          onChange={this.handleChange}/>
+            name="search"
+            value={this.state.searchTxt}
+            placeholder="Search by name"
+            onChange={this.handleChange}
+          />
+        </div>
+        <div className="list-results">
+          {allCharList}
         </div>
       </div>
     )
