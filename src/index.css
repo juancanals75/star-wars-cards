@@ -19,3 +19,10 @@ header {
     text-align: center;
     font-size: 28px;
 }
+.list-results {
+  width: 70%;
+  display: inline-block;
+}
+.search {
+  float: right;
+}
