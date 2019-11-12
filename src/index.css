@@ -1,23 +1,39 @@
+/* TEMPLATE STYLES */
 body {
   margin: 0;
-  background-color: lightGray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+/* FONT */
+@font-face {
+  font-family: 'Jedi Outline';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Starjhol.ttf') format('truetype');
+}
+
+/*-- HEADER --*/
 header {
-  background-color: darkgray;
-    padding: 2px;
-    text-align: center;
-    font-size: 28px;
+  background-color: black;
+  padding: 1vw;
+  text-align: center;
+  font-size: 5vw;
+  font-family: 'Jedi Outline';
+}
+header h3 {
+  margin: 0;
+}
+.list-container {
+  width: 95%;
+  margin: auto;
 }
 .list-results {
   width: 70%;
