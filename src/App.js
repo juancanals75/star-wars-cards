@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import CharList from './CharList'
 
 class App extends React.Component {
   constructor() {
@@ -31,7 +32,7 @@ class App extends React.Component {
     if(this.state.isLoading) {
       loadCheck = <h1>LOADING</h1>
     } else {
-      loadCheck = <h1>LOADED</h1>
+      loadCheck = <CharList allPeople={this.state.allPeople}/>
     }
 
     return (
