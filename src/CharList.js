@@ -17,15 +17,16 @@ class CharList extends React.Component {
 
   handleChange(e) {
     this.setState({searchTxt: e.target.value})
+
     let currentList = []
     let newList = []
 
     if (e.target.value !== "") {
       currentList = this.props.allPeople
       newList = currentList.filter(item => {
-          // const lc = item.toLowerCase()
-          // const filter = e.target.value.toLowerCase()
-          item.contains(e.target.value)
+        const currentItem = (item.name.toString()).toLowerCase().replace("-", "")
+        const searchValue = e.target.value.toString()
+        return (currentItem.includes(searchValue))
       })
     } else {
       newList = this.props.allPeople
