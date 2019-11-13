@@ -1,4 +1,5 @@
 import React from 'react'
+import ModalCard from './ModalCard'
 import Character from './Character'
 
 class CharList extends React.Component {
@@ -6,7 +7,8 @@ class CharList extends React.Component {
     super(props)
     this.state = {
       filtered: [],
-      searchTxt : ""
+      searchTxt : "",
+      selected: ""
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -37,6 +39,9 @@ class CharList extends React.Component {
 
   render() {
     const allCharList = this.state.filtered.map(function(charProps, index) { return (<Character key={index} {...charProps} />) })
+    // return (
+    //   <ModalCard />
+    // )
     return (
       <div className="list-container">
         <div className="search">

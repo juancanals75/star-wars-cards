@@ -76,6 +76,12 @@ main {
   transform: scale(1.1, 1.1);
   background-color: #b6441b;
 }
+.character.selected {
+  width: 100%;
+}
+.extra-info {
+  display: flex;
+}
 
 .name {
   font-weight: 300;
