@@ -44,6 +44,8 @@ class App extends React.Component {
 
     if (this.state.isLoading && !this.state.fetchError) {
       loadCheck = <LoadingScreen />
+    } else if (this.state.fetchError) {
+      loadCheck = <h2>FAILED TO FETCH DATA</h2>
     } else {
       loadCheck = <CharList allPeople={this.state.allPeople}/>
     }

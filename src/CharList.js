@@ -1,5 +1,6 @@
 import React from 'react'
 import ModalCard from './ModalCard'
+import SearchBar from './SearchBar'
 import Character from './Character'
 
 class CharList extends React.Component {
@@ -8,7 +9,8 @@ class CharList extends React.Component {
     this.state = {
       filtered: [],
       searchTxt : "",
-      selected: false
+      selected: false,
+      modalInfo: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -18,10 +20,12 @@ class CharList extends React.Component {
     this.setState({filtered: this.props.allPeople})
   }
 
-  handleClick(e) {
+  handleClick(index) {
     this.setState(prevState => ({
-      selected: !prevState.selected
+      selected: !prevState.selected,
+      modalInfo: index
     }))
+    console.log(index)
   }
 
   handleChange(e) {
@@ -46,23 +50,18 @@ class CharList extends React.Component {
 
   render() {
     const click = this.handleClick
-    const allCharList = this.state.filtered.map(function(charProps, index) { return (<Character onClick={click} key={index} {...charProps} />) })
-    const modalDisplay = this.state.selected ? <ModalCard onClick={click} /> : allCharList
+    const modalInfo = this.props.allPeople[this.state.modalInfo]
+    const allCharList = this.state.filtered.map((charProps, index) => <Character onClick={() => this.handleClick(index)} key={index} {...charProps} /> )
+    const modalDisplay = this.state.selected ? <ModalCard onClick={click} modalInfo={modalInfo} /> : allCharList
     return (
       <div className="list-container">
+        <SearchBar handleChange={this.handleChange} searchTxt={this.state.searchTxt} />
         {modalDisplay}
       </div>
     )
     // return (
     //   <div className="list-container">
-    //     <div className="search">
-    //       <input
-    //         name="search"
-    //         value={this.state.searchTxt}
-    //         placeholder="Search by name"
-    //         onChange={this.handleChange}
-    //       />
-    //     </div>
+    //
     //     <div className="list-results">
     //       {allCharList}
     //     </div>
