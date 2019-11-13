@@ -25,7 +25,6 @@ class CharList extends React.Component {
       selected: !prevState.selected,
       modalInfo: index
     }))
-    console.log(index)
   }
 
   handleChange(e) {
@@ -52,21 +51,19 @@ class CharList extends React.Component {
     const click = this.handleClick
     const modalInfo = this.props.allPeople[this.state.modalInfo]
     const allCharList = this.state.filtered.map((charProps, index) => <Character onClick={() => this.handleClick(index)} key={index} {...charProps} /> )
-    const modalDisplay = this.state.selected ? <ModalCard onClick={click} modalInfo={modalInfo} /> : allCharList
-    return (
-      <div className="list-container">
-        <SearchBar handleChange={this.handleChange} searchTxt={this.state.searchTxt} />
-        {modalDisplay}
-      </div>
-    )
-    // return (
-    //   <div className="list-container">
-    //
-    //     <div className="list-results">
-    //       {allCharList}
-    //     </div>
-    //   </div>
-    // )
+
+    if (this.state.selected) {
+      return (
+        <ModalCard onClick={click} modalInfo={modalInfo} />
+      )
+    } else {
+      return (
+        <div className="list-container">
+          <SearchBar handleChange={this.handleChange} searchTxt={this.state.searchTxt} />
+          {allCharList}
+        </div>
+      )
+    }
   }
 }
 
