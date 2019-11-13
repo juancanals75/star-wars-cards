@@ -1,8 +1,8 @@
 import React from 'react'
 
-function ModalCard() {
+function ModalCard(props) {
   return (
-    <h2>MODAL CARD</h2>
+    <h2 onClick={props.onClick}>MODAL CARD</h2>
   )
 }
 

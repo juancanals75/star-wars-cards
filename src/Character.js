@@ -19,7 +19,7 @@ class Character extends React.Component {
     const infoShow = this.state.expand ? "block" : "none"
     const cardStyle = this.state.expand ? "character selected" : "character"
     return (
-      <div onClick={this.expandInfo} className={cardStyle}>
+      <div onClick={this.props.onClick} className={cardStyle}>
         <h3 className="name">{this.props.name}</h3>
         <div className="extra-info">
           <p style={{display: infoShow}}>Birth Year</p>

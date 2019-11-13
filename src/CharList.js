@@ -8,13 +8,20 @@ class CharList extends React.Component {
     this.state = {
       filtered: [],
       searchTxt : "",
-      selected: ""
+      selected: false
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
     this.setState({filtered: this.props.allPeople})
+  }
+
+  handleClick(e) {
+    this.setState(prevState => ({
+      selected: !prevState.selected
+    }))
   }
 
   handleChange(e) {
@@ -38,25 +45,29 @@ class CharList extends React.Component {
   }
 
   render() {
-    const allCharList = this.state.filtered.map(function(charProps, index) { return (<Character key={index} {...charProps} />) })
-    // return (
-    //   <ModalCard />
-    // )
+    const click = this.handleClick
+    const allCharList = this.state.filtered.map(function(charProps, index) { return (<Character onClick={click} key={index} {...charProps} />) })
+    const modalDisplay = this.state.selected ? <ModalCard onClick={click} /> : allCharList
     return (
       <div className="list-container">
-        <div className="search">
-          <input
-            name="search"
-            value={this.state.searchTxt}
-            placeholder="Search by name"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="list-results">
-          {allCharList}
-        </div>
+        {modalDisplay}
       </div>
     )
+    // return (
+    //   <div className="list-container">
+    //     <div className="search">
+    //       <input
+    //         name="search"
+    //         value={this.state.searchTxt}
+    //         placeholder="Search by name"
+    //         onChange={this.handleChange}
+    //       />
+    //     </div>
+    //     <div className="list-results">
+    //       {allCharList}
+    //     </div>
+    //   </div>
+    // )
   }
 }
 
