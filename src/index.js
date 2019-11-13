@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import './fonts/Starjhol.ttf';
 import './fonts/Starjedi.ttf';
 import './fonts/anakinmono.ttf';
 import * as serviceWorker from './serviceWorker';

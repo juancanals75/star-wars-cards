@@ -1,9 +1,5 @@
 /* FONT */
 @font-face {
-  font-family: 'Jedi Hollow';
-  src: url('./fonts/Starjhol.ttf') format('truetype');
-}
-@font-face {
   font-family: 'Jedi Solid';
   src: url('./fonts/Starjedi.ttf') format('truetype');
 }
@@ -44,6 +40,11 @@ header h3 {
   letter-spacing: 0.9vw;
   font-family: 'Jedi Solid';
 }
+.header-link {
+  color: #FFE81F;
+  text-decoration: none;
+  font-weight: 100;
+}
 main {
   padding-top: 1vw;
 }
@@ -68,9 +69,10 @@ main {
   text-align: center;
   cursor: pointer;
   transition: all 0.4s;
+  max-width: 22vw;
 }
 .character:hover {
-  transform: scale(0.95, 0.95);
+  transform: scale(1.1, 1.1);
   background-color: #b6441b;
 }
 
@@ -93,6 +95,7 @@ main {
   .character {
     width: 40%;
     margin: 2vw 1vw;
+    max-width: none;
   }
   header h3 {
     font-size: 7vw;

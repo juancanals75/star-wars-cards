@@ -1,5 +1,6 @@
 import React from 'react'
 import LoadingScreen from './LoadingScreen'
+import Header from './Header'
 import CharList from './CharList'
 
 class App extends React.Component {
@@ -43,6 +44,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Header />
         <main>{loadCheck}</main>
       </div>
     )

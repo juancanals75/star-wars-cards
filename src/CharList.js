@@ -25,7 +25,7 @@ class CharList extends React.Component {
       currentList = this.props.allPeople
       newList = currentList.filter(item => {
         const currentItem = (item.name.toString()).toLowerCase().replace("-", "")
-        const searchValue = e.target.value.toString()
+        const searchValue = (e.target.value.toString()).toLowerCase()
         return (currentItem.includes(searchValue))
       })
     } else {
