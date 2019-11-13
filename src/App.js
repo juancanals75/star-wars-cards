@@ -13,6 +13,8 @@ class App extends React.Component {
     }
   }
 
+  abortController = new AbortController()
+
   componentDidMount() {
     let allFetch = []
     this.setState({isLoading: true})
@@ -21,7 +23,7 @@ class App extends React.Component {
       allFetch[i-1] = fetch(fetchUrl).then(response => response.json()).then(response => response.results)
     }
 
-    Promise.all(allFetch).then(values => {
+    Promise.all(allFetch, {signal: this.abortController.signal}).then(values => {
       this.setState({
         allPeople: values.flat(),
         isLoading: false
@@ -31,6 +33,10 @@ class App extends React.Component {
       this.setState({fetchError: true})
       console.log(error)
     })
+  }
+
+  componentWillUnmount() {
+    this.abortController.abort()
   }
 
   render() {

@@ -1,4 +1,4 @@
-/* FONT */
+/* CUSTOM FONTS */
 @font-face {
   font-family: 'Jedi Solid';
   src: url('./fonts/Starjedi.ttf') format('truetype');
@@ -58,10 +58,12 @@ main {
   flex-wrap: wrap;
 }
 .character {
-  flex-grow: 1;
-  background-color: #c4c7b3;
   display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  user-select: none;
   width: 20%;
+  background-color: #c4c7b3;
   align-items: center;
   justify-content: center;
   margin: 0.5vw;
@@ -69,7 +71,6 @@ main {
   text-align: center;
   cursor: pointer;
   transition: all 0.4s;
-  max-width: 22vw;
 }
 .character:hover {
   transform: scale(1.1, 1.1);
@@ -78,6 +79,9 @@ main {
 
 .name {
   font-weight: 300;
+}
+.mass {
+  display: none;
 }
 /* SEARCH */
 .search {
