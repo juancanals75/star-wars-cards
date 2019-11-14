@@ -48,7 +48,7 @@ header h3 {
 
 
 main {
-  padding-top: 1vw;
+  padding-top: 2vh;
 }
 
 
@@ -61,7 +61,7 @@ main {
 .list-results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly
+  justify-content: space-between;
 }
 
 /* CHARACTERS */
@@ -77,6 +77,7 @@ main {
   padding: 1vw;
   margin-bottom: 1vw;
   cursor: pointer;
+  text-align: center;
   transition: all 0.4s;
 }
 .character:hover {
@@ -111,13 +112,40 @@ main {
 /* MOBILE VIEW */
 @media (max-width: 500px) {
   .character {
-    width: 40%;
-    margin: 2vw 1vw;
-    max-width: none;
+    flex-basis: 44%;
+    padding: 2vw;
+    margin-bottom: 2vw;
+    height: 9vh;
   }
   header h3 {
     font-size: 7vw;
   }
+  .search input {
+    width: 100%;
+    margin-bottom: 2vw;
+    box-sizing: border-box;
+  }
+  .modal {
+    width: 80%;
+  }
+}
+
+/*--------- NAME CARD ANIMATIONS -----------------*/
+.fade-enter,
+.fade-appear {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-appear-active {
+  opacity: 1;
+  transition: all 1s;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: all 1s;
 }
 
 /* LOADER */
