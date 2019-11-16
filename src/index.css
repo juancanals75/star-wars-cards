@@ -107,7 +107,20 @@ main {
   margin: auto;
   background-color: #c4c7b3;
 }
-
+.back-btn {
+  background-color: #b6441b;
+  display: inline-block;
+  padding: 1vw;
+  color: white;
+  border-radius: 4px;
+  border: 1px solid #463539;
+  cursor: pointer;
+  transition: .3s;
+}
+.back-btn:hover {
+  background-color: #65260f;
+  color: darkGray;
+}
 
 /* MOBILE VIEW */
 @media (max-width: 500px) {
@@ -126,7 +139,11 @@ main {
     box-sizing: border-box;
   }
   .modal {
-    width: 80%;
+    width: 91%;
+  }
+  .back-btn {
+    margin-bottom: 2vh;
+    padding: 2.5vh;
   }
 }
 

@@ -11,11 +11,11 @@ class CharList extends React.Component {
       filtered: [],
       searchTxt : "",
       showModal: false,
+      showList: true,
       modalInfo: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.showModal = this.showModal.bind(this)
-    this.showList = this.showList.bind(this)
   }
 
   componentDidMount() {
@@ -23,17 +23,12 @@ class CharList extends React.Component {
   }
 
   showModal(name) {
-
     const modalInfo = this.props.allPeople.find(currentValue => currentValue.name === name )
-
     this.setState({
-      showModal: true,
-      modalInfo: modalInfo
+      modalInfo: modalInfo,
+      showList: false
     })
-  }
-
-  showList() {
-    this.setState({showModal: false})
+    setTimeout(() => this.setState({showModal: true}), 500);
   }
 
   handleChange(e) {
@@ -67,6 +62,7 @@ class CharList extends React.Component {
           in={this.state.showModal}
           unmountOnExit
           timeout={500}
+          onExited={() => this.setState({showList: true})}
           classNames="fade"
         >
           <ModalCard
@@ -74,22 +70,23 @@ class CharList extends React.Component {
             modalInfo={this.state.modalInfo}
           />
         </CSSTransition>
-        <div className="list-results">
-          {this.state.filtered.map((charProps, index) => (
-            <CSSTransition
-              in={!this.state.showModal}
-              timeout={500}
-              classNames="fade"
-              unmountOnExit
-              key={index}
-            >
-              <Character
-                onClick={() => this.showModal(charProps.name)}
-                {...charProps}
-              />
-            </CSSTransition>
-          ))}
-        </div>
+        <TransitionGroup className="list-results">
+          {this.state.showList && (
+            this.state.filtered.map((charProps, index) => (
+              <CSSTransition
+                timeout={500}
+                classNames="fade"
+                unmountOnExit
+                key={index}
+              >
+                <Character
+                  onClick={() => this.showModal(charProps.name)}
+                  {...charProps}
+                />
+              </CSSTransition>
+            ))
+          )}
+        </TransitionGroup>
       </div>
     )
   }

@@ -2,8 +2,8 @@ import React from 'react'
 
 function ModalCard(props) {
   const {name, mass, height, birth_year, eye_color, gender, hair_color} = props.modalInfo
+
   let genderTxt
-  let hairTxt
   if (gender === "none") {
     genderTxt = "No Gender"
   } else if (gender === "n/a") {
@@ -12,6 +12,7 @@ function ModalCard(props) {
     genderTxt = "Gender: " + gender
   }
 
+  let hairTxt
   if (hair_color === "none") {
     hairTxt = "No Hair"
   } else if (hair_color === "n/a") {
@@ -19,6 +20,7 @@ function ModalCard(props) {
   } else {
     hairTxt = "Hair Color: " + hair_color
   }
+
   return (
     <div className="modal">
       <h2>{name}</h2>
@@ -28,12 +30,9 @@ function ModalCard(props) {
       <p>Eye color: {eye_color}</p>
       <p>{genderTxt}</p>
       <p>{hairTxt}</p>
-      <button onClick={props.onClick}>Back to the list</button>
+      <div className="back-btn" onClick={props.onClick}>Back to the list</div>
     </div>
   )
-  // return (
-  //   <h2>MODAL TEST</h2>
-  // )
 }
 
 
