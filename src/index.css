@@ -45,9 +45,14 @@ header h3 {
   text-decoration: none;
   font-weight: 100;
 }
+
+
 main {
-  padding-top: 1vw;
+  padding-top: 2vh;
 }
+
+
+
 /* RESULTS LIST */
 .list-container {
   width: 95%;
@@ -56,60 +61,108 @@ main {
 .list-results {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
+
+/* CHARACTERS */
 .character {
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+  -webkit-user-select: none;
   user-select: none;
-  width: 20%;
+  flex-basis: 21%;
   background-color: #c4c7b3;
   align-items: center;
   justify-content: center;
-  margin: 0.5vw;
   box-shadow: 0px 6px 12px 0px black;
-  text-align: center;
+  padding: 1vw;
+  margin-bottom: 1vw;
   cursor: pointer;
+  text-align: center;
   transition: all 0.4s;
 }
 .character:hover {
   transform: scale(1.1, 1.1);
   background-color: #b6441b;
 }
-.character.selected {
-  width: 100%;
-}
-.extra-info {
-  display: flex;
-}
-
 .name {
   font-weight: 300;
 }
-.mass {
-  display: none;
-}
+
+
 /* SEARCH */
 .search {
-  display: flex;
+  text-align: center;
 }
 .search input {
-  width: 100%;
+  width: 50%;
   font-size: 21px;
   font-family: 'Anakin';
-  margin: 0.5vw;
+  margin-bottom: 1vw;
+}
+
+/* MODAL */
+.modal {
+  width: 49vw;
+  padding: 1vw 4vw;
+  margin: auto;
+  background-color: #c4c7b3;
+}
+.back-btn {
+  background-color: #b6441b;
+  display: inline-block;
+  padding: 1vw;
+  color: white;
+  border-radius: 4px;
+  border: 1px solid #463539;
+  cursor: pointer;
+  transition: .3s;
+}
+.back-btn:hover {
+  background-color: #65260f;
+  color: darkGray;
 }
 
 /* MOBILE VIEW */
 @media (max-width: 500px) {
   .character {
-    width: 40%;
-    margin: 2vw 1vw;
-    max-width: none;
+    flex-basis: 44%;
+    padding: 2vw;
+    margin-bottom: 2vw;
+    height: 9vh;
   }
   header h3 {
     font-size: 7vw;
   }
+  .search input {
+    width: 100%;
+    margin-bottom: 2vw;
+    box-sizing: border-box;
+  }
+  .modal {
+    width: 91%;
+  }
+  .back-btn {
+    margin-bottom: 2vh;
+    padding: 2.5vh;
+  }
+}
+
+/*--------- ANIMATIONS --------------*/
+.fade-enter,
+.fade-appear {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-appear-active {
+  opacity: 1;
+  transition: all 0.5s;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: all 0.5s;
 }
 
 /* LOADER */
