@@ -130,7 +130,7 @@ main {
   }
 }
 
-/*--------- NAME CARD ANIMATIONS -----------------*/
+/*--------- ANIMATIONS --------------*/
 .fade-enter,
 .fade-appear {
   opacity: 0;
@@ -138,14 +138,14 @@ main {
 .fade-enter-active,
 .fade-appear-active {
   opacity: 1;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .fade-exit {
   opacity: 1;
 }
 .fade-exit-active {
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 /* LOADER */

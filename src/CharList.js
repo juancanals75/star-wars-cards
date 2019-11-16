@@ -10,25 +10,30 @@ class CharList extends React.Component {
     this.state = {
       filtered: [],
       searchTxt : "",
-      selected: false,
+      showModal: false,
       modalInfo: []
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.showModal = this.showModal.bind(this)
+    this.showList = this.showList.bind(this)
   }
 
   componentDidMount() {
     this.setState({filtered: this.props.allPeople})
   }
 
-  handleClick(name) {
+  showModal(name) {
 
     const modalInfo = this.props.allPeople.find(currentValue => currentValue.name === name )
 
-    this.setState(prevState => ({
-      selected: !prevState.selected,
+    this.setState({
+      showModal: true,
       modalInfo: modalInfo
-    }))
+    })
+  }
+
+  showList() {
+    this.setState({showModal: false})
   }
 
   handleChange(e) {
@@ -52,43 +57,41 @@ class CharList extends React.Component {
   }
 
   render() {
-    const click = this.handleClick
-
-    // if (this.state.selected) {
-    //   return (
-    //     <ModalCard onClick={click} modalInfo={this.state.modalInfo} />
-    //   )
-    // } else {
-      return (
-        <div className="list-container">
-          <SearchBar handleChange={this.handleChange} searchTxt={this.state.searchTxt} />
-          <CSSTransition
-            in={this.state.selected}
-            unmountOnExit
-            timeout={1000}
-            classNames="fade"
-          >
-            <ModalCard onClick={click} modalInfo={this.state.modalInfo} />
-          </CSSTransition>
-          <TransitionGroup className="list-results">
-            {this.state.filtered.map((charProps, index) => (
-              <CSSTransition
-                in={!this.state.selected}
-                timeout={1000}
-                classNames="fade"
-                unmountOnExit
-                key={index}
-              >
-                <Character
-                  onClick={() => this.handleClick(charProps.name)}
-                  {...charProps}
-                />
-              </CSSTransition>
-            ))}
-          </TransitionGroup>
+    return (
+      <div className="list-container">
+        <SearchBar
+          handleChange={this.handleChange}
+          searchTxt={this.state.searchTxt}
+        />
+        <CSSTransition
+          in={this.state.showModal}
+          unmountOnExit
+          timeout={500}
+          classNames="fade"
+        >
+          <ModalCard
+            onClick={() => this.setState({showModal: false})}
+            modalInfo={this.state.modalInfo}
+          />
+        </CSSTransition>
+        <div className="list-results">
+          {this.state.filtered.map((charProps, index) => (
+            <CSSTransition
+              in={!this.state.showModal}
+              timeout={500}
+              classNames="fade"
+              unmountOnExit
+              key={index}
+            >
+              <Character
+                onClick={() => this.showModal(charProps.name)}
+                {...charProps}
+              />
+            </CSSTransition>
+          ))}
         </div>
-      )
-
+      </div>
+    )
   }
 }
 
