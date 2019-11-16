@@ -1,5 +1,7 @@
 import React from 'react'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import ModalCard from './ModalCard'
+import SearchBar from './SearchBar'
 import Character from './Character'
 
 class CharList extends React.Component {
@@ -8,13 +10,25 @@ class CharList extends React.Component {
     this.state = {
       filtered: [],
       searchTxt : "",
-      selected: ""
+      showModal: false,
+      showList: true,
+      modalInfo: []
     }
     this.handleChange = this.handleChange.bind(this)
+    this.showModal = this.showModal.bind(this)
   }
 
   componentDidMount() {
     this.setState({filtered: this.props.allPeople})
+  }
+
+  showModal(name) {
+    const modalInfo = this.props.allPeople.find(currentValue => currentValue.name === name )
+    this.setState({
+      modalInfo: modalInfo,
+      showList: false
+    })
+    setTimeout(() => this.setState({showModal: true}), 500);
   }
 
   handleChange(e) {
@@ -38,23 +52,41 @@ class CharList extends React.Component {
   }
 
   render() {
-    const allCharList = this.state.filtered.map(function(charProps, index) { return (<Character key={index} {...charProps} />) })
-    // return (
-    //   <ModalCard />
-    // )
     return (
       <div className="list-container">
-        <div className="search">
-          <input
-            name="search"
-            value={this.state.searchTxt}
-            placeholder="Search by name"
-            onChange={this.handleChange}
+        <SearchBar
+          handleChange={this.handleChange}
+          searchTxt={this.state.searchTxt}
+        />
+        <CSSTransition
+          in={this.state.showModal}
+          unmountOnExit
+          timeout={500}
+          onExited={() => this.setState({showList: true})}
+          classNames="fade"
+        >
+          <ModalCard
+            onClick={() => this.setState({showModal: false})}
+            modalInfo={this.state.modalInfo}
           />
-        </div>
-        <div className="list-results">
-          {allCharList}
-        </div>
+        </CSSTransition>
+        <TransitionGroup className="list-results">
+          {this.state.showList && (
+            this.state.filtered.map((charProps, index) => (
+              <CSSTransition
+                timeout={500}
+                classNames="fade"
+                unmountOnExit
+                key={index}
+              >
+                <Character
+                  onClick={() => this.showModal(charProps.name)}
+                  {...charProps}
+                />
+              </CSSTransition>
+            ))
+          )}
+        </TransitionGroup>
       </div>
     )
   }
