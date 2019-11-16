@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/star-wars-cards/static/css/main.9aced210.chunk.css",
+    "main.js": "/star-wars-cards/static/js/main.aae9f86f.chunk.js",
+    "main.js.map": "/star-wars-cards/static/js/main.aae9f86f.chunk.js.map",
+    "runtime-main.js": "/star-wars-cards/static/js/runtime-main.42698bb9.js",
+    "runtime-main.js.map": "/star-wars-cards/static/js/runtime-main.42698bb9.js.map",
+    "static/js/2.0c474ac0.chunk.js": "/star-wars-cards/static/js/2.0c474ac0.chunk.js",
+    "static/js/2.0c474ac0.chunk.js.map": "/star-wars-cards/static/js/2.0c474ac0.chunk.js.map",
+    "index.html": "/star-wars-cards/index.html",
+    "precache-manifest.9cc0f9706aa46a996e5436fa220d84d9.js": "/star-wars-cards/precache-manifest.9cc0f9706aa46a996e5436fa220d84d9.js",
+    "service-worker.js": "/star-wars-cards/service-worker.js",
+    "static/css/main.9aced210.chunk.css.map": "/star-wars-cards/static/css/main.9aced210.chunk.css.map",
+    "static/media/Starjedi.ttf": "/star-wars-cards/static/media/Starjedi.cc3019aa.ttf",
+    "static/media/anakinmono.ttf": "/star-wars-cards/static/media/anakinmono.c982ef25.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.42698bb9.js",
+    "static/js/2.0c474ac0.chunk.js",
+    "static/css/main.9aced210.chunk.css",
+    "static/js/main.aae9f86f.chunk.js"
+  ]
+}
