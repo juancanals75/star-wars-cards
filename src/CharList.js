@@ -1,28 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import ModalCard from './ModalCard'
 import SearchBar from './SearchBar'
 import Character from './Character'
 
 class CharList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      filtered: [],
-      searchTxt : "",
-      showModal: false,
-      showList: true,
-      modalInfo: []
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.showModal = this.showModal.bind(this)
+  state = {
+    filtered: [],
+    searchTxt : "",
+    showModal: false,
+    showList: true,
+    modalInfo: []
   }
 
   componentDidMount() {
     this.setState({filtered: this.props.allPeople})
   }
 
-  showModal(name) {
+  showModal = (name) => {
     const modalInfo = this.props.allPeople.find(currentValue => currentValue.name === name )
     this.setState({
       modalInfo: modalInfo,
@@ -31,7 +27,7 @@ class CharList extends React.Component {
     setTimeout(() => this.setState({showModal: true}), 500);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({searchTxt: e.target.value})
 
     let currentList = []
@@ -90,6 +86,10 @@ class CharList extends React.Component {
       </div>
     )
   }
+}
+
+CharList.propTypes = {
+  allPeople: PropTypes.array.isRequired
 }
 
 export default CharList

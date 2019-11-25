@@ -4,16 +4,13 @@ import Header from './Header'
 import CharList from './CharList'
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      allPeople: [],
-      isLoading: false,
-      fetchError: false
-    }
+
+  state = {
+    allPeople: [],
+    isLoading: false,
+    fetchError: false
   }
 
-  abortController = new AbortController()
 
   componentDidMount() {
     let allFetch = []
@@ -35,6 +32,8 @@ class App extends React.Component {
     })
   }
 
+  // Make sure to kill fetch to prevent infinte loops
+  abortController = new AbortController()
   componentWillUnmount() {
     this.abortController.abort()
   }
@@ -59,4 +58,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App

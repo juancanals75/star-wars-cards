@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function ModalCard(props) {
   const {name, mass, height, birth_year, eye_color, gender, hair_color} = props.modalInfo
@@ -33,6 +34,16 @@ function ModalCard(props) {
       <div className="back-btn" onClick={props.onClick}>Back to the list</div>
     </div>
   )
+}
+
+ModalCard.propTypes = {
+  name: PropTypes.string,
+  mass: PropTypes.number,
+  height: PropTypes.number,
+  birth_year: PropTypes.number,
+  eye_color: PropTypes.string,
+  gender: PropTypes.string,
+  hair_color: PropTypes.string
 }
 
 
