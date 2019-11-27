@@ -22,6 +22,8 @@ function ModalCard(props) {
     hairTxt = "Hair Color: " + hair_color
   }
 
+  console.log(props.image)
+
   return (
     <div className="modal">
       <h2>{name}</h2>
