@@ -1,1 +1,1 @@
-export {default} from './CharList-view.js'
+export {default} from './CharList-container.js'
