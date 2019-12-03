@@ -26,7 +26,6 @@ class FetchHandler extends Component {
     })
     .catch(error => {
       this.setState({fetchError: true})
-      console.log(error)
     })
   }
 
