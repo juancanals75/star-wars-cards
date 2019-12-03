@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 import LoadingScreen from './LoadingScreen'
 import CharList from './CharList'
 
-const Display = (props) => (
+const App = (props) => (
   <main>
     {props.isLoading ?
       <LoadingScreen error={props.fetchError}/> :
@@ -10,5 +10,4 @@ const Display = (props) => (
     }
   </main>
 )
-
-export default Display
+export default App

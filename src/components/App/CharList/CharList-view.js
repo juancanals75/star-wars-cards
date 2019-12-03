@@ -1,10 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
-import ModalCard from './ModalCard'
-import SearchBar from './SearchBar'
-import Character from './Character'
-import FetchHandler from "./FetchHandler"
+import ModalCard from '../ModalCard'
+import SearchBar from '../SearchBar'
+import Character from '../Character'
 
 class CharList extends React.Component {
   state = {
@@ -49,7 +47,6 @@ class CharList extends React.Component {
   }
 
   render() {
-    const fetchUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCYQVI6Msbzsl2zZ2DgIzTXI32vDApd9Gs&cx=007158060221416245727:s9zphajttz8&searchType=image&q=" + this.state.modalInfo.name
     return (
       <div className="list-container">
         <SearchBar
@@ -63,15 +60,10 @@ class CharList extends React.Component {
           onExited={() => this.setState({showList: true})}
           classNames="fade"
         >
-          <FetchHandler url={fetchUrl} multiple={false}>
-          {({isLoading, fetchError, data}) => (
-            <ModalCard
-            onClick={() => this.setState({showModal: false})}
-            modalInfo={this.state.modalInfo}
-            image={data}
-            />
-          )}
-          </FetchHandler>
+          <ModalCard
+          onClick={() => this.setState({showModal: false})}
+          modalInfo={this.state.modalInfo}
+          />
         </CSSTransition>
         <TransitionGroup className="list-results">
           {this.state.showList && (
@@ -93,10 +85,6 @@ class CharList extends React.Component {
       </div>
     )
   }
-}
-
-CharList.propTypes = {
-  allPeople: PropTypes.array.isRequired
 }
 
 export default CharList

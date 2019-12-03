@@ -2,6 +2,8 @@ import {Component} from "react"
 
 class FetchHandler extends Component {
 
+  // GOOGLE SEARCH URL ----> "https://www.googleapis.com/customsearch/v1?key=AIzaSyCYQVI6Msbzsl2zZ2DgIzTXI32vDApd9Gs&cx=007158060221416245727:s9zphajttz8&searchType=image&q="
+
   state = {
     data: [],
     isLoading: false,
