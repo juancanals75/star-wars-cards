@@ -33,7 +33,7 @@ function ModalCard(props) {
       <p>Eye color: {eye_color}</p>
       <p>{genderTxt}</p>
       <p>{hairTxt}</p>
-      <div className="back-btn" onClick={props.onClick}>Back to the list</div>
+      <div className="back-btn" onClick={props.onClick}>BACK</div>
     </div>
   )
 }
