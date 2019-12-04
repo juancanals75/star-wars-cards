@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css';
 import './assets/fonts/Starjedi.ttf';
 import './assets/fonts/anakinmono.ttf';
 
-import App from './components/App/App';
+import App from './components/App';
 import FetchHandler from "./utils/FetchHandler"
 
 import * as serviceWorker from './serviceWorker';
@@ -13,11 +15,13 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <FetchHandler url="https://swapi.co/api/people/?page=" multiple={true}>
     {({isLoading, fetchError, data}) => (
-      <App
-        isLoading={isLoading}
-        fetchError={fetchError}
-        data={data}
-      />
+      <main>
+        <App
+          isLoading={isLoading}
+          fetchError={fetchError}
+          data={data}
+        />
+      </main>
     )}
   </FetchHandler>,
   document.getElementById('root'));

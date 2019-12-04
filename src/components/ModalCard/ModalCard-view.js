@@ -22,7 +22,7 @@ function ModalCard(props) {
   }
 
   return (
-    <div className="modal">
+    <div className="modal-custom">
       <h2>{name}</h2>
       <p>Mass: {mass === "unknown" ? "Unknown" : mass + "Kg"}</p>
       <p>Height: {height === "unknown" ? "Unknown" : height + "cm"}</p>
