@@ -1,24 +1,19 @@
 import React from 'react'
-import ModalCard from '../ModalCard'
 import Character from '../Character'
 
 
-const CharList = props => (
+const CharListView = props => (
   <div className="list-container">
-    
-    <ModalCard
-      onClick={props.displayList}
-      modalInfo={props.modalInfo}
-    />
-    {props.showList && (
-      props.filtered.map((charProps, index) => (
-        <Character
-          onClick={() => props.displayModal(charProps.name)}
-          {...charProps}
-        />
-      ))
-    )}
+    <div className="list-results">
+      {props.filtered.map((charProps) => (
+          <Character
+            onClick={() => props.displayModal(charProps.name)}
+            {...charProps}
+          />
+        ))
+      }
+    </div>
   </div>
 )
 
-export default CharList
+export default CharListView

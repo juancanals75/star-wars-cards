@@ -14,11 +14,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <FetchHandler url="https://swapi.co/api/people/?page=" multiple={true}>
-    {({isLoading, fetchError, data}) => (
+    {({data}) => (
       <main>
         <App
-          isLoading={isLoading}
-          fetchError={fetchError}
           data={data}
         />
       </main>

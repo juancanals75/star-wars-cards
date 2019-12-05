@@ -101,12 +101,6 @@ main {
 }
 
 /* MODAL */
-.modal {
-  width: 49vw;
-  padding: 1vw 4vw;
-  margin: auto;
-  background-color: #c4c7b3;
-}
 .back-btn {
   background-color: #b6441b;
   display: inline-block;

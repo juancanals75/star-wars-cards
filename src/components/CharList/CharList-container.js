@@ -1,17 +1,11 @@
 import React from "react"
-import CharList from "./CharList-view"
+import CharListView from "./CharList-view"
+import ModalCard from "../ModalCard"
 
 class CharListContainer extends React.Component {
   state = {
-    filtered: [],
-    searchTxt : "",
     showModal: false,
-    showList: true,
     modalInfo: []
-  }
-
-  componentDidMount() {
-    this.setState({filtered: this.props.allPeople})
   }
 
   displayModal = (name) => {
@@ -20,51 +14,27 @@ class CharListContainer extends React.Component {
 
     this.setState({
       modalInfo: modalInfo,
-      showList: false
+      showModal: true
     })
-    setTimeout(() => this.setState({showModal: true}), 400)
   }
 
-  displayList = () => {
+  handleClose = () => {
     this.setState({
       showModal: false
     })
-    setTimeout(() => this.setState({showList: true}), 400)
   }
 
-  handleChange = (e) => {
-    this.setState({searchTxt: e.target.value})
-
-    let currentList = []
-    let newList = []
-
-    if (e.target.value !== "") {
-      currentList = this.props.allPeople
-      newList = currentList.filter(item => {
-        const currentItem = (item.name.toString()).toLowerCase().replace("-", "")
-        const searchValue = (e.target.value.toString()).toLowerCase()
-        return (currentItem.includes(searchValue))
-      })
-    } else {
-      newList = this.props.allPeople
-    }
-
-    this.setState({ filtered: newList})
-  }
 
   render() {
-    const {filtered, searchTxt, showModal, showList, modalInfo} = this.state
+    const {showModal, modalInfo} = this.state
     return (
-      <CharList
-        filtered={filtered}
-        searchTxt={searchTxt}
-        showModal={showModal}
-        showList={showList}
-        modalInfo={modalInfo}
-        handleChange={this.handleChange}
-        displayModal={this.displayModal}
-        displayList={this.displayList}
-      />
+      <>
+        <ModalCard show={showModal} handleClose={this.handleClose} modalInfo={modalInfo}/>
+        <CharListView
+          filtered={this.props.filtered}
+          displayModal={this.displayModal}
+        />
+      </>
     )
   }
 }

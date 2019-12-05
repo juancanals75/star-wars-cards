@@ -1,4 +1,5 @@
-import {Component} from "react"
+import React, {Component} from "react"
+import LoadingScreen from "../components/LoadingScreen"
 
 class FetchHandler extends Component {
 
@@ -54,8 +55,13 @@ class FetchHandler extends Component {
 
   render() {
     const {isLoading, fetchError, data} = this.state
+    if (isLoading) {
+      return (
+        <LoadingScreen error={fetchError} />
+      )
+    }
     return (
-      this.props.children({isLoading, fetchError, data})
+      this.props.children({data})
     )
   }
 }

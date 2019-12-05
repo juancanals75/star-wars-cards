@@ -1,4 +1,5 @@
 import React from 'react'
+import Modal from 'react-bootstrap/Modal'
 
 function ModalCard(props) {
   const {name, mass, height, birth_year, eye_color, gender, hair_color} = props.modalInfo
@@ -22,16 +23,22 @@ function ModalCard(props) {
   }
 
   return (
-    <div className="modal-custom">
-      <h2>{name}</h2>
-      <p>Mass: {mass === "unknown" ? "Unknown" : mass + "Kg"}</p>
-      <p>Height: {height === "unknown" ? "Unknown" : height + "cm"}</p>
-      <p>Year of birth: {birth_year === "unknown" ? "Unknown" : birth_year}</p>
-      <p>Eye color: {eye_color}</p>
-      <p>{genderTxt}</p>
-      <p>{hairTxt}</p>
-      <div className="back-btn" onClick={props.onClick}>BACK</div>
-    </div>
+    <Modal show={props.show} onHide={props.handleClose}>
+      <Modal.Header closebutton>
+        <Modal.Title>{name}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>Mass: {mass === "unknown" ? "Unknown" : mass + "Kg"}</p>
+        <p>Height: {height === "unknown" ? "Unknown" : height + "cm"}</p>
+        <p>Year of birth: {birth_year === "unknown" ? "Unknown" : birth_year}</p>
+        <p>Eye color: {eye_color}</p>
+        <p>{genderTxt}</p>
+        <p>{hairTxt}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <div className="back-btn" onClick={props.handleClose}>BACK</div>
+      </Modal.Footer>
+    </Modal>
   )
 }
 
