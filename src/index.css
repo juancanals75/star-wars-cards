@@ -100,22 +100,6 @@ main {
   margin-bottom: 1vw;
 }
 
-/* MODAL */
-.back-btn {
-  background-color: #b6441b;
-  display: inline-block;
-  padding: 1vw;
-  color: white;
-  border-radius: 4px;
-  border: 1px solid #463539;
-  cursor: pointer;
-  transition: .3s;
-}
-.back-btn:hover {
-  background-color: #65260f;
-  color: darkGray;
-}
-
 /* MOBILE VIEW */
 @media (max-width: 500px) {
   .character {
