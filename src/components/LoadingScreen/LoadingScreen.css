@@ -1,0 +1,10 @@
+/* LOADER */
+.loading-container {
+  margin-top: 2vw;
+  text-align: center;
+  color: white;
+}
+.loading-container h2 {
+  font-weight: 200;
+  margin: 0;
+}

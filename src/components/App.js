@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import LoadingScreen from './LoadingScreen'
 import CharList from './CharList'
 import SearchBar from './SearchBar'
 
-const App = (props) => {
+function App(props) {
   const [searchTxt, setSearchTxt] = useState("")
   const [filtered, setFiltered] = useState(props.data)
 

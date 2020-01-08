@@ -1,4 +1,5 @@
 import React from 'react'
+import './Character.css'
 
 const Character = (props) => (
   <div onClick={props.onClick} className="character">

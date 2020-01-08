@@ -1,0 +1,23 @@
+/* CHARACTERS */
+.character {
+  display: flex;
+  -webkit-user-select: none;
+  user-select: none;
+  flex-basis: 21%;
+  background-color: #c4c7b3;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 6px 12px 0px black;
+  padding: 1vw;
+  margin-bottom: 1vw;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.4s;
+}
+.character:hover {
+  transform: scale(1.1, 1.1);
+  background-color: #b6441b;
+}
+.name {
+  font-weight: 300;
+}

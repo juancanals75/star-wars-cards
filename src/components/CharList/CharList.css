@@ -1,0 +1,10 @@
+/* RESULTS LIST */
+.list-container {
+  width: 95%;
+  margin: auto;
+}
+.list-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

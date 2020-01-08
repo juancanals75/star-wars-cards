@@ -1,5 +1,6 @@
 import React from 'react'
 import Character from '../Character'
+import './CharList.css'
 
 
 const CharListView = props => (
