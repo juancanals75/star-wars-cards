@@ -1,19 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4f5c4f5ed63e80ef26653ffdbd4e409e",
+    "revision": "3bfe712305fe9011ea33befacd1a2c77",
     "url": "/star-wars-cards/index.html"
   },
   {
-    "revision": "057940c7c8d9fefd99c3",
-    "url": "/star-wars-cards/static/css/main.9aced210.chunk.css"
+    "revision": "68241ac2183a13d4348a",
+    "url": "/star-wars-cards/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "61b0604be0cacdc7d716",
-    "url": "/star-wars-cards/static/js/2.0c474ac0.chunk.js"
+    "revision": "1d823f39201bd6d71d9b",
+    "url": "/star-wars-cards/static/css/main.f942b6d4.chunk.css"
   },
   {
-    "revision": "057940c7c8d9fefd99c3",
-    "url": "/star-wars-cards/static/js/main.aae9f86f.chunk.js"
+    "revision": "68241ac2183a13d4348a",
+    "url": "/star-wars-cards/static/js/2.a39e1884.chunk.js"
+  },
+  {
+    "revision": "1d823f39201bd6d71d9b",
+    "url": "/star-wars-cards/static/js/main.9b06f8d6.chunk.js"
   },
   {
     "revision": "cb680ef7cc68a2dd3853",
