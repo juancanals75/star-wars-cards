@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css';
-import App from './App';
-import './fonts/Starjedi.ttf';
-import './fonts/anakinmono.ttf';
+import './assets/fonts/Starjedi.ttf';
+import './assets/fonts/anakinmono.ttf';
+
+import App from './components/App';
+import FetchHandler from "./utils/FetchHandler"
+
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <FetchHandler url="https://swapi.co/api/people/?page=" multiple={true}>
+    {({data}) => (
+      <main>
+        <App
+          data={data}
+        />
+      </main>
+    )}
+  </FetchHandler>,
+  document.getElementById('root'));
+
+
 if (module.hot) {
   module.hot.accept();
 }
