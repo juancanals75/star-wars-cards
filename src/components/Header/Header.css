@@ -1,0 +1,45 @@
+header {
+  display: flex;
+  width: 95%;
+  max-height: 120px;
+  margin: 4vh auto;
+  align-items: stretch;
+  color: #fbc100;
+}
+
+/* LOGO */
+header img {
+  max-height: inherit;
+}
+
+/* DESCRIPTION */
+.header-info {
+  padding: 0 2vw;
+  flex-basis: 40%;
+  display: flex;
+  height: 120px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header-info p {
+  margin-bottom: 0;
+  letter-spacing: 0.1em;
+}
+
+/* SEARCH */
+.search-container input {
+  width: 100%;
+  background: none;
+  border-radius: 6px;
+  color: white;
+  padding-left: 10px;
+  line-height: 2em;
+}
+
+/* NAVIGATION */
+.nav-container {
+  background-color: #5f5d5d;
+  flex-grow: 1;
+  text-align: center;
+  padding: 2%;
+}

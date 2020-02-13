@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
+import Header from "./Header"
 import CharList from './CharList'
-import SearchBar from './SearchBar'
+
+import FetchHandler from "../utils/FetchHandler"
 
 function App(props) {
   const [searchTxt, setSearchTxt] = useState("")
-  const [filtered, setFiltered] = useState(props.data)
+  const [filtered, setFiltered] = useState([])
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setSearchTxt(e.target.value)
 
     let currentList = []
@@ -28,14 +30,17 @@ function App(props) {
 
   return (
     <>
-      <SearchBar
-        handleChange={handleChange}
-        searchTxt={searchTxt}
-      />
-      <CharList
-        allPeople={props.data}
-        filtered={filtered}
-      />
+      <Header handleChange={handleChange} searchTxt />
+      <FetchHandler url="https://swapi.co/api/people/?page=" multiple={true}>
+        {({data}) => (
+          <main>
+            <CharList
+              allPeople={data}
+              filtered={filtered}
+            />
+          </main>
+        )}
+      </FetchHandler>
     </>
   )
 }

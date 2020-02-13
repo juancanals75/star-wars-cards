@@ -5,7 +5,7 @@ import ModalCard from "../ModalCard"
 class CharListContainer extends React.Component {
   state = {
     showModal: false,
-    modalInfo: []
+    modalInfo: [],
   }
 
   displayModal = (name) => {
