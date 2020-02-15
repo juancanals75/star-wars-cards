@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {Context} from "../../utils/Context"
 
-const SearchBar = (props) => (
-  <div className="search-container">
-    <input
+function SearchBar() {
+  const {searchTxt, handleChange} = useContext(Context)
+
+  return (
+    <div className="search-container">
+      <input
       name="search"
-      value={props.searchTxt}
+      value={searchTxt}
       placeholder="Search by name"
-      onChange={props.handleChange}
-    />
-  </div>
-)
+      onChange={handleChange}
+      />
+    </div>
+  )
+}
 
 export default SearchBar

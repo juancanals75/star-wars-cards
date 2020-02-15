@@ -1,46 +1,30 @@
-import React, {useState} from 'react'
+import React, {useContext} from "react"
+import {Switch, Route, Redirect} from "react-router-dom"
+
+import {Context} from "../utils/Context"
 import Header from "./Header"
-import CharList from './CharList'
+import LoadingScreen from "./LoadingScreen"
+import ListResults from "./ListResults"
 
-import FetchHandler from "../utils/FetchHandler"
 
-function App(props) {
-  const [searchTxt, setSearchTxt] = useState("")
-  const [filtered, setFiltered] = useState([])
-
-  function handleChange(e) {
-    setSearchTxt(e.target.value)
-
-    let currentList = []
-    let newList = []
-
-    if (e.target.value !== "") {
-      currentList = props.data
-      newList = currentList.filter(item => {
-        const currentItem = (item.name.toString()).toLowerCase().replace("-", "")
-        const searchValue = (e.target.value.toString()).toLowerCase()
-        return (currentItem.includes(searchValue))
-      })
-    } else {
-      newList = props.data
-    }
-
-    setFiltered(newList)
-  }
-
+function App() {
+  const {fetchData, charactersArr} = useContext(Context)
   return (
     <>
-      <Header handleChange={handleChange} searchTxt />
-      <FetchHandler url="https://swapi.co/api/people/?page=" multiple={true}>
-        {({data}) => (
-          <main>
-            <CharList
-              allPeople={data}
-              filtered={filtered}
-            />
-          </main>
-        )}
-      </FetchHandler>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          {fetchData("https://swapi.co/api/people/?page=", "people")}
+          <Redirect to="/characters" />
+        </Route>
+        <Route path="/characters">
+          <ListResults data={charactersArr} />
+        </Route>
+        <Route path="/species">
+          {/* {fetchMultiple(speciesUrl, speciesArr, setSpeciesArr)}
+          <ListResults data={speciesArr} /> */}
+        </Route>
+      </Switch>
     </>
   )
 }

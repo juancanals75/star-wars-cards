@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter} from "react-router-dom"
+import {ContextProvider} from "./utils/Context"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './index.css';
 
 import './assets/fonts/Oswald-variable.ttf';
@@ -13,7 +14,13 @@ import App from './components/App';
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <ContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ContextProvider>,
+  document.getElementById('root'));
 
 
 if (module.hot) {
