@@ -38,8 +38,13 @@ header img {
 
 /* NAVIGATION */
 .nav-container {
-  background-color: #5f5d5d;
   flex-grow: 1;
+  justify-content: space-between;
   text-align: center;
-  padding: 2%;
+  padding: 1%;
+  align-items: center;
+  display: flex;
+}
+.nav-container a {
+  color: #fbc100;
 }

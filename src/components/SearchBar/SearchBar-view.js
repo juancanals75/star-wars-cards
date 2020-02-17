@@ -10,7 +10,7 @@ function SearchBar() {
       name="search"
       value={searchTxt}
       placeholder="Search by name"
-      onChange={handleChange}
+      onChange={event => handleChange(event)}
       />
     </div>
   )

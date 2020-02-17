@@ -1,28 +1,55 @@
-import React, {useContext} from "react"
+import React, {useContext, useEffect} from "react"
 import {Switch, Route, Redirect} from "react-router-dom"
 
 import {Context} from "../utils/Context"
 import Header from "./Header"
-import LoadingScreen from "./LoadingScreen"
 import ListResults from "./ListResults"
 
 
 function App() {
-  const {fetchData, charactersArr} = useContext(Context)
+  const {
+    fetchData,
+    peopleArr,
+    speciesArr,
+    planetsArr,
+    starshipsArr,
+    vehiclesArr,
+    filmsArr
+  } = useContext(Context)
+
+  useEffect(() => {
+    fetchData("people", 9)
+    fetchData("species", 4)
+    fetchData("planets", 7)
+    fetchData("starships", 4)
+    fetchData("vehicles", 4)
+    fetchData("films", 1)
+  }, [])
+
   return (
     <>
       <Header />
       <Switch>
         <Route exact path="/">
-          {fetchData("https://swapi.co/api/people/?page=", "people")}
-          <Redirect to="/characters" />
+          <Redirect to="/people" />
         </Route>
-        <Route path="/characters">
-          <ListResults data={charactersArr} />
+        <Route path="/people">
+          <ListResults data={peopleArr} />
         </Route>
         <Route path="/species">
-          {/* {fetchMultiple(speciesUrl, speciesArr, setSpeciesArr)}
-          <ListResults data={speciesArr} /> */}
+          <ListResults data={speciesArr} />
+        </Route>
+        <Route path="/planets">
+          <ListResults data={planetsArr} />
+        </Route>
+        <Route path="/starships">
+          <ListResults data={starshipsArr} />
+        </Route>
+        <Route path="/vehicles">
+          <ListResults data={vehiclesArr} />
+        </Route>
+        <Route path="/films">
+          <h1>FILMS</h1>
         </Route>
       </Switch>
     </>

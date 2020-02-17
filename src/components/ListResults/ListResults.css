@@ -11,16 +11,18 @@
 
 /* LIST ITEMS */
 .list-item {
+  border-radius: 10px;
+  font-family: 'Jedi Solid';
   display: flex;
   -webkit-user-select: none;
   user-select: none;
-  flex-basis: 21%;
-  background-color: #c4c7b3;
+  flex-basis: 17%;
+  background-color: #fbc100;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 6px 12px 0px black;
-  padding: 1vw;
-  margin-bottom: 1vw;
+  padding: 4vh 1vw;
+  margin-bottom: 3vw;
   cursor: pointer;
   text-align: center;
   transition: all 0.4s;
@@ -28,7 +30,4 @@
 .list-item:hover {
   transform: scale(1.1, 1.1);
   background-color: #b6441b;
-}
-.name {
-  font-weight: 300;
 }

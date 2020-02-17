@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 
-function ModalCard(props) {
+function ModalCardView(props) {
   const {name, mass, height, birth_year, eye_color, gender, hair_color} = props.modalInfo
 
   let genderTxt
@@ -19,7 +19,7 @@ function ModalCard(props) {
   }
 
   return (
-    <Modal show={props.show} onHide={props.handleClose} centered>
+    <Modal show={props.displayModal} onHide={props.onHide} centered>
       <Modal.Header closeButton>
         <Modal.Title>{name}</Modal.Title>
       </Modal.Header>
@@ -36,4 +36,4 @@ function ModalCard(props) {
   )
 }
 
-export default ModalCard
+export default ModalCardView

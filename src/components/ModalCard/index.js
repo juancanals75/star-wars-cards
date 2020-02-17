@@ -1,1 +1,1 @@
-export {default} from './ModalCard-view.js'
+export {default} from './ModalCard-container.js'
