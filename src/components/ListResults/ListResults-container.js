@@ -6,26 +6,25 @@ import ListResultsView from "./ListResults-view"
 
 function ListResultsContainer(props) {
   const {searchTxt} = useContext(Context)
-  const [filtered, setFiltered] = useState(props.data)
-
+  const fullArr = props.data
+  const [filtered, setFiltered] = useState([])
 
   useEffect(() => {
     if (searchTxt !== "") {
-      const newList = filtered.filter(item => {
+      const newList = fullArr.filter(item => {
         const itemName = (item.name.toString()).toLowerCase().replace("-", "")
         const searchValue = (searchTxt.toString()).toLowerCase()
         return (itemName.includes(searchValue))
       })
       setFiltered(newList)
     } else {
-      setFiltered(props.data)
+      setFiltered(fullArr)
     }
-  }, [searchTxt, filtered, props.data])
+  }, [searchTxt, fullArr])
 
   return (
     <ListResultsView filtered={filtered}/>
   )
-
 }
 
 export default ListResultsContainer

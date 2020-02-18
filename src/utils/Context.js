@@ -13,6 +13,7 @@ function ContextProvider({children}) {
   const [filmsArr, setFilmsArr] = useState([])
   const [displayModal, setDisplayModal] = useState(false)
   const [modalInfo, setModalInfo] = useState([])
+  const [modalCategory, setModalCategory] = useState("")
 
   function handleChange(e) {
     setSearchTxt(e.target.value)
@@ -24,7 +25,6 @@ function ContextProvider({children}) {
 
   function showModal(url) {
     const category = url[21] + url[22]
-
     switch (category) {
       case "pe":
         setModalInfo(peopleArr.find(currentValue => currentValue.url === url ))
@@ -44,7 +44,10 @@ function ContextProvider({children}) {
       case "fi":
         setModalInfo(filmsArr.find(currentValue => currentValue.url === url ))
         break
+      default:
+        break
     }
+    setModalCategory(category)
     setDisplayModal(true)
   }
 
@@ -79,6 +82,8 @@ function ContextProvider({children}) {
           case "films":
             setFilmsArr(values.flat())
             break
+          default:
+            break
         }
     })
   }
@@ -97,7 +102,8 @@ function ContextProvider({children}) {
       modalInfo,
       displayModal,
       hideModal,
-      showModal
+      showModal,
+      modalCategory
     }}>
       {children}
     </Context.Provider>

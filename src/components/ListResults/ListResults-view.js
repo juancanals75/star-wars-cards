@@ -1,9 +1,6 @@
 import React, {useContext} from 'react'
 import {Context} from "../../utils/Context"
 
-import LoadingScreen from "../LoadingScreen"
-import ModalCard from "../ModalCard"
-
 import "./ListResults.css"
 
 function ListResultsView(props) {
@@ -11,11 +8,10 @@ function ListResultsView(props) {
 
   return (
     <div className="list-container">
-      <ModalCard />
       <div className="list-results">
         {props.filtered.map(item => (
           <div key={item.url} className="list-item" onClick={() => showModal(item.url)}>
-            {item.name.toLowerCase()}
+            <span>{item.name.toLowerCase()}</span>
           </div>
         ))}
       </div>

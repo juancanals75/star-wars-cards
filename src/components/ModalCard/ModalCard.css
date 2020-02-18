@@ -1,0 +1,31 @@
+/* MODAL CONTAINER */
+.modal-content {
+  background-color: #e0cc6b;
+  padding: 2vh 2vw;
+}
+.modal-header {
+  padding: 0;
+  border: none;
+}
+.modal-title {
+  font-family: 'Jedi Solid';
+  margin: auto;
+  font-size: 2.5vw;
+  letter-spacing: 2px;
+}
+.modal-header .close {
+  margin: 0;
+  position: absolute;
+  right: 0;
+}
+
+.modal-attributes {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+.modal-attributes span {
+  color: #B62321;
+  text-transform: capitalize;
+}

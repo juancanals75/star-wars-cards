@@ -3,6 +3,7 @@ import {Switch, Route, Redirect} from "react-router-dom"
 
 import {Context} from "../utils/Context"
 import Header from "./Header"
+import ModalCard from "./ModalCard"
 import ListResults from "./ListResults"
 
 
@@ -14,7 +15,7 @@ function App() {
     planetsArr,
     starshipsArr,
     vehiclesArr,
-    filmsArr
+    // filmsArr
   } = useContext(Context)
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
       <Header />
+      <ModalCard />
       <Switch>
         <Route exact path="/">
           <Redirect to="/people" />
