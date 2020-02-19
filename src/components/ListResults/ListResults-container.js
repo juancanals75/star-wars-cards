@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react"
 
-import {Context} from "../../utils/Context"
+import {Context} from "../Context"
 import ListResultsView from "./ListResults-view"
 
 

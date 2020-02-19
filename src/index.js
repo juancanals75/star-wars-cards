@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter} from "react-router-dom"
-import {ContextProvider} from "./utils/Context"
+import {ContextProvider} from "./components/Context"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 import './assets/fonts/Oswald-variable.ttf';
 import './assets/fonts/Starjedi.ttf';
-import './assets/fonts/anakinmono.ttf';
 
 import App from './components/App';
 

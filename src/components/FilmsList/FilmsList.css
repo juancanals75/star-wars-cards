@@ -1,0 +1,17 @@
+.films-container {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  justify-content: space-between;
+}
+.poster {
+  flex-basis: 13%;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.poster img {
+  max-width: 100%;
+}
+.poster:hover {
+  transform: scale(1.3);
+}

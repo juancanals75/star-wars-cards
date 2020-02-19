@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {Context} from "../../utils/Context"
+import {Context} from "../Context"
 
 import "./ListResults.css"
 

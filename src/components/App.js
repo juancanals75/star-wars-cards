@@ -1,21 +1,25 @@
 import React, {useContext, useEffect} from "react"
 import {Switch, Route, Redirect} from "react-router-dom"
 
-import {Context} from "../utils/Context"
+import {Context} from "./Context"
+
+import LoadingScreen from "./LoadingScreen"
 import Header from "./Header"
 import ModalCard from "./ModalCard"
 import ListResults from "./ListResults"
+import FilmsList from "./FilmsList"
 
 
 function App() {
   const {
+    isLoading,
     fetchData,
     peopleArr,
     speciesArr,
     planetsArr,
     starshipsArr,
     vehiclesArr,
-    // filmsArr
+    filmsArr
   } = useContext(Context)
 
   useEffect(() => {
@@ -33,7 +37,7 @@ function App() {
       <ModalCard />
       <Switch>
         <Route exact path="/">
-          <Redirect to="/people" />
+          {isLoading ? <LoadingScreen /> : <Redirect to="/people" />}
         </Route>
         <Route path="/people">
           <ListResults data={peopleArr} />
@@ -51,7 +55,7 @@ function App() {
           <ListResults data={vehiclesArr} />
         </Route>
         <Route path="/films">
-          <h1>FILMS</h1>
+          <FilmsList data={filmsArr} />
         </Route>
       </Switch>
     </>

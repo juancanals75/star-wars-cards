@@ -1,20 +1,30 @@
 import React from "react"
-import Modal from 'react-bootstrap/Modal'
 
 import "./ModalCard.css"
 
 function ModalCardPlanets(props) {
-  const {name} = props.modalInfo
+  const {
+    diameter,
+    rotation_period,
+    orbital_period,
+    gravity,
+    population,
+    climate,
+    terrain,
+    surface_water
+  } = props.modalInfo
 
   return (
-    <Modal show={props.displayModal} onHide={props.onHide} centered>
-      <Modal.Header closeButton>
-        <Modal.Title>{name}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h3>PLANETS MODAL</h3>
-      </Modal.Body>
-    </Modal>
+    <div className="modal-attributes pl">
+      <div>Diameter: <span>{diameter + "km"}</span></div>
+      <div>Rotation period: <span>{rotation_period + "h"}</span></div>
+      <div>Orbital Period: <span>{orbital_period + " days"}</span></div>
+      <div>Gravity: <span>{gravity + "G"}</span></div>
+      <div>Population: <span>{population}</span></div>
+      <div>Climate: <span>{climate}</span></div>
+      <div>Terrain: <span>{terrain}</span></div>
+      <div>Surface water: <span>{surface_water + "%"}</span></div>
+    </div>
   )
 }
 

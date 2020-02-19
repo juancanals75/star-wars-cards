@@ -1,7 +1,8 @@
 import React, {useContext} from "react"
 import Modal from 'react-bootstrap/Modal'
+import Button from "react-bootstrap/Button"
 
-import {Context} from "../../utils/Context"
+import {Context} from "../Context"
 
 import ModalCardPeople from "./ModalCard-people"
 import ModalCardSpecies from "./ModalCard-species"
@@ -33,6 +34,8 @@ function ModalCardContainer(props) {
   }
   const modalAtt = modalAttributes(modalCategory)
 
+
+
   return (
     <Modal show={displayModal} onHide={hideModal} centered>
       <Modal.Header>
@@ -41,6 +44,16 @@ function ModalCardContainer(props) {
       <Modal.Body>
         {modalAtt}
       </Modal.Body>
+      <Modal.Footer bsPrefix={`modal-footer ${modalCategory}`}>
+        <div className="episodes">
+          <h3>episodes</h3>
+          <h4>I II III IV V VI VII</h4>
+        </div>
+        <div className="footer-buttons">
+          <Button variant="dark">Vehicles</Button>
+          <Button variant="dark">Starships</Button>
+        </div>
+      </Modal.Footer>
     </Modal>
   )
 

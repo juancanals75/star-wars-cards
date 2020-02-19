@@ -1,13 +1,11 @@
 import React, {useContext} from "react"
-import Modal from 'react-bootstrap/Modal'
 
-import {Context} from "../../utils/Context"
+import {Context} from "../Context"
 
 import "./ModalCard.css"
 
 function ModalCardSpecies(props) {
   const {
-    name,
     classification,
     designation,
     average_height,
@@ -23,7 +21,7 @@ function ModalCardSpecies(props) {
   const planetCheck = planetsArr.find(item => item.url === homeworld)
 
   return (
-    <div className="modal-attributes">
+    <div className="modal-attributes sp">
       <div>Classification: <span>{classification}</span></div>
       <div>Designation: <span>{designation}</span></div>
       <div>Average height: <span>{average_height + "cm"}</span></div>

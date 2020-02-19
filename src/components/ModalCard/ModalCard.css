@@ -1,7 +1,7 @@
 /* MODAL CONTAINER */
 .modal-content {
   background-color: #e0cc6b;
-  padding: 2vh 2vw;
+  border-radius: 10px;
 }
 .modal-header {
   padding: 0;
@@ -12,11 +12,11 @@
   margin: auto;
   font-size: 2.5vw;
   letter-spacing: 2px;
+  text-transform: lowercase;
 }
-.modal-header .close {
-  margin: 0;
-  position: absolute;
-  right: 0;
+
+.modal-body {
+  padding: 1vh 2vw;
 }
 
 .modal-attributes {
@@ -26,6 +26,71 @@
   line-height: 1.4em;
 }
 .modal-attributes span {
-  color: #B62321;
   text-transform: capitalize;
+}
+.modal-attributes.pe span {
+  color: #B62321;
+}
+.modal-attributes.sp span {
+  color: #CC1B69;
+}
+.modal-attributes.pl span {
+  color: #CC371B;
+}
+.modal-attributes.st span {
+  color: #867DDE;
+}
+.modal-attributes.ve span {
+  color: #9B19C2;
+}
+.modal-attributes.fi span {
+  color: #C24D19;
+}
+
+
+.modal-footer {
+  border: none;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  justify-content: space-between;
+  padding: 1vh 2vw;
+}
+.modal-footer.pe {
+  background-color: #B62321;
+}
+.modal-footer.sp {
+  background-color: #CC1B69;
+}
+.modal-footer.pl {
+  background-color: #CC371B;
+}
+.modal-footer.st {
+  background-color: #867DDE;
+}
+.modal-footer.ve {
+  background-color: #9B19C2;
+}
+.modal-footer.fi {
+  background-color: #C24D19;
+}
+
+.episodes {
+  text-align: center;
+}
+.episodes h3 {
+  font-family: 'Jedi Solid';
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.episodes h4 {
+  font-size: 2.4vw;
+  color: #e0cc6b;
+}
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 40%;
+}
+.footer-buttons .btn {
+
 }

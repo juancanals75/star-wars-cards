@@ -2,8 +2,11 @@ import React, {useState} from "react"
 
 const Context = React.createContext()
 
+// GOOGLE SEARCH URL ----> "https://www.googleapis.com/customsearch/v1?key=AIzaSyCYQVI6Msbzsl2zZ2DgIzTXI32vDApd9Gs&cx=007158060221416245727:s9zphajttz8&searchType=image&q="
+
 function ContextProvider({children}) {
 
+  const [isLoading, setIsLoading] = useState(true)
   const [searchTxt, setSearchTxt] = useState("")
   const [peopleArr, setPeopleArr] = useState([])
   const [speciesArr, setSpeciesArr] = useState([])
@@ -51,7 +54,7 @@ function ContextProvider({children}) {
     setDisplayModal(true)
   }
 
-  // Fetch Multiple pages
+  // Fetch Data to fill the arrays
   function fetchData(arr, pages) {
     let allFetch = []
     for (let i = 1; i < pages+1; i++) {
@@ -66,6 +69,7 @@ function ContextProvider({children}) {
         switch (arr) {
           case "people":
             setPeopleArr(values.flat())
+            setIsLoading(false)
             break
           case "species":
             setSpeciesArr(values.flat())
@@ -90,6 +94,7 @@ function ContextProvider({children}) {
 
   return (
     <Context.Provider value={{
+      isLoading,
       searchTxt,
       handleChange,
       fetchData,

@@ -1,6 +1,6 @@
 import React, {useContext} from "react"
 
-import {Context} from "../../utils/Context"
+import {Context} from "../Context"
 
 import "./ModalCard.css"
 
@@ -30,17 +30,19 @@ function ModalCardPeople(props) {
   }
 
   return (
-    <div className="modal-attributes">
-      <div>Birth year: <span>{birth_year}</span></div>
-      <div>Eye color: <span>{eye_color}</span></div>
-      <div>Gender: <span>{gender}</span></div>
-      <div>Hair color: <span>{hair_color}</span></div>
-      <div>Height: <span>{height + "cm"}</span></div>
-      <div>Mass: <span>{mass + "Kg"}</span></div>
-      <div>Skin color: <span>{skin_color}</span></div>
-      <div>Homeworld: <span>{planetCheck.name}</span></div>
-      <div>Species: <span>{newSpeciesArr === [] ? "Unknown" : newSpeciesArr}</span></div>
-    </div>
+    <>
+      <div className="modal-attributes pe">
+        <div>Birth year: <span>{birth_year}</span></div>
+        <div>Eye color: <span>{eye_color}</span></div>
+        {gender === "n/a" ? null : <div>Gender: <span>{gender}</span></div>}
+        {hair_color === "n/a" ? null : <div>Hair color: <span>{hair_color}</span></div>}
+        <div>Height: <span>{height === "unknown" ? height : height + "cm"}</span></div>
+        <div>Mass: <span>{mass === "unknown" ? mass : mass + "Kg"}</span></div>
+        <div>Skin color: <span>{skin_color}</span></div>
+        <div>Homeworld: <span>{planetCheck.name}</span></div>
+        <div>Specie: <span>{species === [] ? "unknown" : newSpeciesArr}</span></div>
+      </div>
+    </>
   )
 }
 

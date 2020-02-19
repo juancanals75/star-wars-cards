@@ -4,11 +4,6 @@
   src: url('./assets/fonts/Starjedi.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Anakin';
-  font-weight: 400;
-  src: url('./assets/fonts/anakinmono.ttf') format('truetype');
-}
-@font-face {
   font-family: 'Oswald-variable';
   src: url('./assets/fonts/Oswald-variable.ttf') format('truetype');
 }
