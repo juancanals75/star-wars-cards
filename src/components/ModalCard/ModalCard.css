@@ -3,6 +3,8 @@
   background-color: #e0cc6b;
   border-radius: 10px;
 }
+
+/* HEADER AND TITLE */
 .modal-header {
   padding: 0;
   border: none;
@@ -15,10 +17,12 @@
   text-transform: lowercase;
 }
 
+/* BODY */
 .modal-body {
   padding: 1vh 2vw;
 }
 
+/* CATEGORY BASED ATTRIBUTES */
 .modal-attributes {
   display: flex;
   flex-direction: column;
@@ -46,8 +50,11 @@
 .modal-attributes.fi span {
   color: #C24D19;
 }
+.clickable {
+  cursor: pointer;
+}
 
-
+/*--- MODAL FOOTER ---*/
 .modal-footer {
   border: none;
   border-bottom-left-radius: inherit;
@@ -86,11 +93,9 @@
   font-size: 2.4vw;
   color: #e0cc6b;
 }
+
 .footer-buttons {
   display: flex;
   justify-content: space-between;
   flex-basis: 40%;
-}
-.footer-buttons .btn {
-
 }

@@ -17,14 +17,14 @@ function ModalCardPeople(props) {
     species
   } = props.modalInfo
 
-  const {planetsArr, speciesArr} = useContext(Context)
+  const {planetsArr, speciesArr, showModal} = useContext(Context)
   const planetCheck = planetsArr.find(item => item.url === homeworld)
 
-  let newSpeciesArr = []
+  let newSpeciesArr
   for (var i = 0; i < species.length; i++) {
     for (var j = 0; j < speciesArr.length; j++) {
       if (species[i] === speciesArr[j].url) {
-        newSpeciesArr.push(speciesArr[j].name)
+        newSpeciesArr = speciesArr[j]
       }
     }
   }
@@ -39,8 +39,8 @@ function ModalCardPeople(props) {
         <div>Height: <span>{height === "unknown" ? height : height + "cm"}</span></div>
         <div>Mass: <span>{mass === "unknown" ? mass : mass + "Kg"}</span></div>
         <div>Skin color: <span>{skin_color}</span></div>
-        <div>Homeworld: <span>{planetCheck.name}</span></div>
-        <div>Specie: <span>{species === [] ? "unknown" : newSpeciesArr}</span></div>
+        <div>Homeworld: <span className="clickable" onClick={() => showModal(planetCheck.url)}>{planetCheck.name}</span></div>
+        <div>Specie: <span className="clickable" onClick={() => showModal(newSpeciesArr.url)}>{species === [] ? "unknown" : newSpeciesArr.name}</span></div>
       </div>
     </>
   )

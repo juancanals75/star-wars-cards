@@ -14,16 +14,22 @@ function ModalCardPlanets(props) {
     surface_water
   } = props.modalInfo
 
+  const attCheck = (att, txt) => att === "unknown" ? att : att + txt
+
+  function formatPopulation(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
   return (
     <div className="modal-attributes pl">
-      <div>Diameter: <span>{diameter + "km"}</span></div>
-      <div>Rotation period: <span>{rotation_period + "h"}</span></div>
-      <div>Orbital Period: <span>{orbital_period + " days"}</span></div>
-      <div>Gravity: <span>{gravity + "G"}</span></div>
-      <div>Population: <span>{population}</span></div>
+      <div>Diameter: <span>{attCheck(diameter, "km")}</span></div>
+      <div>Rotation period: <span>{attCheck(rotation_period, "h")}</span></div>
+      <div>Orbital Period: <span>{attCheck(orbital_period, " days")}</span></div>
+      <div>Gravity: <span>{gravity === "N/A" ? "Unavailable" : attCheck(gravity, " G")}</span></div>
+      <div>Population: <span>{population === "unknown" ? population : formatPopulation(population)}</span></div>
       <div>Climate: <span>{climate}</span></div>
       <div>Terrain: <span>{terrain}</span></div>
-      <div>Surface water: <span>{surface_water + "%"}</span></div>
+      <div>Surface water: <span>{attCheck(surface_water, "%")}</span></div>
     </div>
   )
 }
