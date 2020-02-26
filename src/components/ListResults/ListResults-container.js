@@ -23,7 +23,7 @@ function ListResultsContainer(props) {
   }, [searchTxt, fullArr])
 
   return (
-    <ListResultsView filtered={filtered}/>
+    <ListResultsView filtered={filtered} cat={props.cat}/>
   )
 }
 

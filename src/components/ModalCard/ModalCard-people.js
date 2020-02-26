@@ -39,8 +39,8 @@ function ModalCardPeople(props) {
         <div>Height: <span>{height === "unknown" ? height : height + "cm"}</span></div>
         <div>Mass: <span>{mass === "unknown" ? mass : mass + "Kg"}</span></div>
         <div>Skin color: <span>{skin_color}</span></div>
-        <div>Homeworld: <span className="clickable" onClick={() => showModal(planetCheck.url)}>{planetCheck.name}</span></div>
-        <div>Specie: <span className="clickable" onClick={() => showModal(newSpeciesArr.url)}>{species === [] ? "unknown" : newSpeciesArr.name}</span></div>
+        {homeworld ? <div>Homeworld: <span className="clickable" onClick={() => showModal(planetCheck.url)}>{planetCheck.name}</span></div> : null}
+        {species ? <div>Specie: <span className="clickable" onClick={() => showModal(newSpeciesArr.url)}>{newSpeciesArr.name}</span></div> : null}
       </div>
     </>
   )

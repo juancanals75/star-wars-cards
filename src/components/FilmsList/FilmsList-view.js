@@ -14,25 +14,25 @@ function FilmsListView({data}) {
   return (
     <div className="films-container">
       <div className="poster">
+        <img src={PhantomPoster} alt="Phantom Menace - Movie Poster"/>
+      </div>
+      <div className="poster">
         <img src={AttackPoster} alt="Attack of the Clones - Movie Poster"/>
       </div>
       <div className="poster">
-        <img src={EmpirePoster} alt="Empire Strikes Back - Movie Poster"/>
-      </div>
-      <div className="poster">
-        <img src={ForcePoster} alt="The Force Awakens - Movie Poster"/>
+        <img src={RevengePoster} alt="Revenge of the Sith - Movie Poster"/>
       </div>
       <div className="poster">
         <img src={HopePoster} alt="A New Hope - Movie Poster"/>
       </div>
       <div className="poster">
-        <img src={PhantomPoster} alt="Phantom Menace - Movie Poster"/>
+        <img src={EmpirePoster} alt="Empire Strikes Back - Movie Poster"/>
       </div>
       <div className="poster">
         <img src={ReturnPoster} alt="Return of the Jedi - Movie Poster"/>
       </div>
       <div className="poster">
-        <img src={RevengePoster} alt="Revenge of the Sith - Movie Poster"/>
+        <img src={ForcePoster} alt="The Force Awakens - Movie Poster"/>
       </div>
     </div>
   )

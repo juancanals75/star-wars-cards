@@ -1,8 +1,9 @@
 import React, {useContext} from "react"
-import Modal from 'react-bootstrap/Modal'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Popover from 'react-bootstrap/Popover'
-import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
+import OverlayTrigger from "react-bootstrap/OverlayTrigger"
+import Popover from "react-bootstrap/Popover"
+import ButtonGroup from "react-bootstrap/ButtonGroup"
+import Button from 'react-bootstrap/Button'
 
 import {Context} from "../Context"
 
@@ -36,62 +37,101 @@ function ModalCardContainer(props) {
   }
 
   function episodeCheck() {
-    let episodesArr = []
+    let activeEpisodesArr = []
     const urlArr = modalInfo.films
     if (urlArr) {
       for (var i = 0; i < urlArr.length; i++) {
         for (var j = 0; j < filmsArr.length; j++) {
           if (urlArr[i] === filmsArr[j].url) {
-            episodesArr.push(filmsArr[j].episode_id)
+            activeEpisodesArr.push(filmsArr[j].episode_id)
           }
         }
       }
     }
 
-    const episodeDisplay = filmsArr.map(filmObj => {
-      for (var i = 0; i < episodesArr.length; i++) {
-        if (filmObj.episode_id === episodesArr[i]) {
-          return <span className="active-episode">{filmObj.episode_id}</span>
-        } else {
-          return <span className="disabled-episode">{filmObj.episode_id}</span>
-        }
+    let orderedEpisodes = filmsArr.map(filmObj => filmObj.episode_id)
+    orderedEpisodes = orderedEpisodes.sort()
+
+    const episodeDisplay = orderedEpisodes.map(filmId => {
+      const romanEpisode = () => {switch (filmId) {
+        case 1:
+          return "I"
+        case 2:
+          return "II"
+        case 3:
+          return "III"
+        case 4:
+          return "IV"
+        case 5:
+          return "V"
+        case 6:
+          return "VI"
+        case 7:
+          return "VII"
+        default:
+          break
+        }}
+      if (activeEpisodesArr.includes(filmId)) {
+        return <span className="active">{romanEpisode()}</span>
       }
+      return <span className="disabled">{romanEpisode()}</span>
     })
-    return episodeDisplay.sort((a, b) => a - b)
+
+    return episodeDisplay
   }
 
-
-  // switch (epId) {
-  //   case 1:
-  //     return <span className="active-episode">I</span>
-  //   case 2:
-  //     return <span className="active-episode">II</span>
-  //   case 3:
-  //     return <span className="active-episode">III</span>
-  //   case 4:
-  //     return <span className="active-episode">IV</span>
-  //   case 5:
-  //     return <span className="active-episode">V</span>
-  //   case 6:
-  //     return <span className="active-episode">VI</span>
-  //   case 7:
-  //     return <span className="active-episode">VII</span>
-  //   default:
-  //     break
-  //   }
 
   function buttonCheck(cat) {
     switch (cat) {
       case "pe":
-        return <><Button variant="dark">Vehicles</Button><Button variant="dark">Starships</Button></>
-      case "sp":
         return (
-          <OverlayTrigger
-            trigger="click"
-            placement="top"
-            overlay={
-              <Popover id="popover-positioned-top">
-                <Popover.Title as="h3">{modalInfo.name} characters</Popover.Title>
+          <ButtonGroup toggle={true}>
+            <OverlayTrigger
+              trigger="click"
+              placement="top"
+              overlay={
+                <Popover id="popover-positioned-top">
+                  <Popover.Title as="h3">Vehicles piloted by {modalInfo.name}</Popover.Title>
+                  <Popover.Content>
+                    <ul>
+                      <li>VEHICLES 1</li>
+                      <li>VEHICLES 2</li>
+                      <li>VEHICLES 3</li>
+                    </ul>
+                  </Popover.Content>
+                </Popover>
+              }
+            >
+              <Button variant="dark">Vehicles</Button>
+            </OverlayTrigger>
+            <OverlayTrigger
+              trigger="click"
+              placement="top"
+              overlay={
+                <Popover id="popover-positioned-top">
+                  <Popover.Title as="h3">Starships piloted by {modalInfo.name}</Popover.Title>
+                  <Popover.Content>
+                    <ul>
+                      <li>STARSHIPS 1</li>
+                      <li>STARSHIPS 2</li>
+                      <li>STARSHIPS 3</li>
+                    </ul>
+                  </Popover.Content>
+                </Popover>
+              }
+            >
+              <Button variant="dark">Starships</Button>
+            </OverlayTrigger>
+          </ButtonGroup>
+            )
+            case "sp":
+            return (
+            <OverlayTrigger
+              trigger="click"
+              placement="top"
+              overlay={
+                <Popover id="popover-positioned-top">
+                  <Popover.Title as="h3">{modalInfo.name} characters</Popover.Title>
                 <Popover.Content>
                   <ul>
                     <li>Char 1</li>
@@ -127,7 +167,7 @@ function ModalCardContainer(props) {
       <Modal.Footer bsPrefix={`modal-footer ${modalCategory}`}>
         <div className="episodes">
           <h3>episodes</h3>
-          <h4>{episodeCheck()}</h4>
+          <div className="episode-list">{episodeCheck()}</div>
         </div>
         <div className="footer-buttons">
           {buttonCheck(modalCategory)}
@@ -135,7 +175,6 @@ function ModalCardContainer(props) {
       </Modal.Footer>
     </Modal>
   )
-
 }
 
 export default ModalCardContainer

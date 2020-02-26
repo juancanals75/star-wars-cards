@@ -10,7 +10,7 @@ function ListResultsView(props) {
     <div className="list-container">
       <div className="list-results">
         {props.filtered.map(item => (
-          <div key={item.url} className="list-item" onClick={() => showModal(item.url)}>
+          <div key={item.url} className={`list-item ${props.cat}`} onClick={() => showModal(item.url)}>
             <span>{item.name.toLowerCase()}</span>
           </div>
         ))}

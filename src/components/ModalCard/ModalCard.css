@@ -15,6 +15,7 @@
   font-size: 2.5vw;
   letter-spacing: 2px;
   text-transform: lowercase;
+  text-align: center;
 }
 
 /* BODY */
@@ -83,15 +84,22 @@
 
 .episodes {
   text-align: center;
+  width: 40%;
 }
 .episodes h3 {
   font-family: 'Jedi Solid';
   letter-spacing: 1px;
   margin-bottom: 0;
 }
-.episodes h4 {
+.episode-list {
+  display: flex;
+  justify-content: space-between;
   font-size: 2.4vw;
   color: #e0cc6b;
+}
+.episodes .disabled {
+  color: #2b2b2b;
+  text-decoration: line-through;
 }
 
 .footer-buttons {

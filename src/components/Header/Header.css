@@ -8,14 +8,14 @@ header {
 }
 
 /* LOGO */
-header img {
+.header-logo {
   max-height: inherit;
 }
 
 /* DESCRIPTION */
 .header-info {
   padding: 0 2vw;
-  flex-basis: 40%;
+  flex-basis: 69%;
   display: flex;
   height: 120px;
   flex-direction: column;
@@ -41,10 +41,68 @@ header img {
   flex-grow: 1;
   justify-content: space-between;
   text-align: center;
-  padding: 1%;
   align-items: center;
   display: flex;
 }
 .nav-container a {
   color: #fbc100;
+  max-width: 14%;
+  transition: all 0.5s;
+}
+
+.icon-container {
+  background-color: #fbc100;
+  border-radius: 12px;
+  padding: 16%;
+  margin-bottom: 1vh;
+  transition: all 0.5s;
+}
+.icon-container img {
+  max-width: 100%;
+}
+
+.nav-container .active {
+  transform: scale(1.2);
+}
+
+.active.pe {
+  color: #B62321;
+}
+.active.pe .icon-container {
+  background-color: #B62321;
+}
+
+.active.sp {
+  color: #CC1B69;
+}
+.active.sp .icon-container {
+  background-color: #CC1B69;
+}
+
+.active.pl {
+  color: #CC371B;
+}
+.active.pl .icon-container {
+  background-color: #CC371B;
+}
+
+.active.st {
+  color: #867DDE;
+}
+.active.st .icon-container {
+  background-color: #867DDE;
+}
+
+.active.ve {
+  color: #9B19C2;
+}
+.active.ve .icon-container {
+  background-color: #9B19C2;
+}
+
+.active.fi {
+  color: #C24D19;
+}
+.active.fi .icon-container {
+  background-color: #C24D19;
 }

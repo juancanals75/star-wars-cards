@@ -40,22 +40,22 @@ function App() {
           {isLoading ? <LoadingScreen /> : <Redirect to="/people" />}
         </Route>
         <Route path="/people">
-          <ListResults data={peopleArr} />
+          <ListResults data={peopleArr} cat="pe" />
         </Route>
         <Route path="/species">
-          <ListResults data={speciesArr} />
+          <ListResults data={speciesArr} cat="sp"/>
         </Route>
         <Route path="/planets">
-          <ListResults data={planetsArr} />
+          <ListResults data={planetsArr} cat="pl"/>
         </Route>
         <Route path="/starships">
-          <ListResults data={starshipsArr} />
+          <ListResults data={starshipsArr} cat="st"/>
         </Route>
         <Route path="/vehicles">
-          <ListResults data={vehiclesArr} />
+          <ListResults data={vehiclesArr} cat="ve"/>
         </Route>
         <Route path="/films">
-          <FilmsList data={filmsArr} />
+          <FilmsList data={filmsArr} cat="fi"/>
         </Route>
       </Switch>
     </>
